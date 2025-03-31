@@ -23,4 +23,4 @@ df['Y'] = Y
 print(df.head())
 
 # 保存为 CSV 文件
-df.to_csv("Project/Repo/Machine_Learning/Data/Raw_Data/Lev_Dataset/Normal/training_data.csv", index=False)
+df.to_csv("Project/Active/Machine_Learning/Data/Raw_Data/Lev_Dataset/Normal/training_data.csv", index=False)

@@ -8,7 +8,7 @@ np.random.seed(42)
 num_samples = 1000
 X = np.random.uniform(0, 10, size=(num_samples, 5))
 
-# 自定义因变量映射关系（你可以修改这个函数）
+# 自定义因变量映射关系
 def target_function(x1, x2, x3, x4, x5):
     return 2*x1 + 3*x2 - 0.5*x3 + 0.8*x4 + np.sin(x5) + np.random.normal(0, 0.5)
 
@@ -23,4 +23,4 @@ df['Y'] = Y
 print(df.head())
 
 # 保存为 CSV 文件
-df.to_csv("Repo/Machine_Learning/Data/Lev_Dataset/training_data.csv", index=False)
+df.to_csv("Project/Repo/Machine_Learning/Data/Raw_Data/Lev_Dataset/Normal/training_data.csv", index=False)

@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 # 读取 CSV 数据
-df = pd.read_csv("../data/training_data.csv")
+df = pd.read_csv("Project/Repo/Machine_Learning/Data/Raw_Data/Lev_Dataset/Normal/training_data.csv")
 
 # 查看数据基本信息
 print(df.info())   # 看数据类型
@@ -33,9 +33,9 @@ Y = df['Y']
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
 # 保存处理后的数据
-X_train.to_csv("../data/X_train.csv", index=False)
-X_test.to_csv("../data/X_test.csv", index=False)
-Y_train.to_csv("../data/Y_train.csv", index=False)
-Y_test.to_csv("../data/Y_test.csv", index=False)
+X_train.to_csv("Project/Repo/Machine_Learning/Data/Processed_Data/Lev_Dataset/Normal/X_train.csv", index=False)
+X_test.to_csv("Project/Repo/Machine_Learning/Data/Processed_Data/Lev_Dataset/Normal/X_test.csv", index=False)
+Y_train.to_csv("Project/Repo/Machine_Learning/Data/Processed_Data/Lev_Dataset/Normal/Y_train.csv", index=False)
+Y_test.to_csv("Project/Repo/Machine_Learning/Data/Processed_Data/Lev_Dataset/Normal/Y_test.csv", index=False)
 
 print("数据预处理完成，已保存训练 & 测试数据集！")

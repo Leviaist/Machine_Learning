@@ -1,9 +1,15 @@
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
+# 路径相关的处理
+current_path = os.path.dirname(os.path.abspath(__file__))                                       # 当前目录
+parent_path = os.path.dirname(os.path.dirname(current_path))                                    # 根级目录
+data_path =  os.path.join(parent_path, "Data/Raw_Data/Lev_Dataset/Normal/training_data.csv")    # 数据路径
+
 # 读取 CSV 数据
-df = pd.read_csv("Project/Active/Machine_Learning/Data/Raw_Data/Lev_Dataset/Normal/training_data.csv")
+df = pd.read_csv(data_path)
 
 # 查看数据基本信息
 print(df.info())   # 看数据类型
@@ -33,9 +39,9 @@ Y = df['Y']
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
 # 保存处理后的数据
-X_train.to_csv("Project/Active/Machine_Learning/Data/Processed_Data/Lev_Dataset/Normal/X_train.csv", index=False)
-X_test.to_csv("Project/Active/Machine_Learning/Data/Processed_Data/Lev_Dataset/Normal/X_test.csv", index=False)
-Y_train.to_csv("Project/Active/Machine_Learning/Data/Processed_Data/Lev_Dataset/Normal/Y_train.csv", index=False)
-Y_test.to_csv("Project/Active/Machine_Learning/Data/Processed_Data/Lev_Dataset/Normal/Y_test.csv", index=False)
+X_train.to_csv(os.path.join(parent_path, "Data/Processed_Data/Lev_Dataset/Normal/X_train.csv"), index=False)
+X_test.to_csv(os.path.join(parent_path, "Data/Processed_Data/Lev_Dataset/Normal/X_test.csv"), index=False)
+Y_train.to_csv(os.path.join(parent_path, "Data/Processed_Data/Lev_Dataset/Normal/Y_train.csv"), index=False)
+Y_test.to_csv(os.path.join(parent_path, "Data/Processed_Data/Lev_Dataset/Normal/Y_test.csv"), index=False)
 
 print("数据预处理完成，已保存训练 & 测试数据集！")

@@ -1,5 +1,14 @@
-import pandas as pd
+import os 
 import numpy as np
+import pandas as pd
+from ..Lib import constant
+
+print(constant.current_path)
+
+# 路径相关的处理
+current_path = os.path.dirname(os.path.abspath(__file__))                                       # 当前目录
+parent_path = os.path.dirname(os.path.dirname(current_path))                                    # 根级目录
+data_path =  os.path.join(parent_path, "Data/Raw_Data/Lev_Dataset/Normal/training_data.csv")    # 数据路径
 
 # 设定随机种子，保证结果可复现
 np.random.seed(42)
@@ -23,4 +32,4 @@ df['Y'] = Y
 print(df.head())
 
 # 保存为 CSV 文件
-df.to_csv("Project/Active/Machine_Learning/Data/Raw_Data/Lev_Dataset/Normal/training_data.csv", index=False)
+df.to_csv(data_path, index=False)
